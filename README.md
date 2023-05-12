@@ -132,7 +132,8 @@ class WXNavigationDefaultImpl: NSObject, WXNavigationProtocol {
  
 ```
 创建完后，会要求选择是使用npm源还是yarn源，完成后直接npm start 或者yarn start 运行起来，可以看到如下，说明成功了，在目录下可以找到生成的dist文件夹：
-![截屏2023-05-13 00.06.31](media/16839052485195/%E6%88%AA%E5%B1%8F2023-05-13%2000.06.31.png)
+![image]([media/16839052485195/%E6%88%AA%E5%B1%8F2023-05-13%2000.06.31.png](https://github.com/hwq992689548/WeexDemo/blob/main/%E6%88%AA%E5%B1%8F2023-05-13%2000.06.31.png?raw=true
+))
 
 
 2、weex是单页面打包模式，如果需要进行多个页面一起打包，则需要对webpack.common.conf 文件进行修改配置（后面再说）
@@ -154,7 +155,7 @@ class WXNavigationDefaultImpl: NSObject, WXNavigationProtocol {
  注：1、127.0.0.1貌似没用起作用
     2、webpack.common.conf文件中，有提示
   
-   ![截屏2023-05-13 00.51.29](media/16839052485195/%E6%88%AA%E5%B1%8F2023-05-13%2000.51.29.png)
+   ![image](https://github.com/hwq992689548/WeexDemo/blob/main/%E6%88%AA%E5%B1%8F2023-05-13%2000.38.34.png?raw=true)
 
 还真信了邪，顺手就在vue页面中粘贴了：
 import weex from 'weex-vue-render';
@@ -164,7 +165,7 @@ import weex from 'weex-vue-render';
 三、weex多页面打包配置
 1、在src下创建pages文件夹以及装对应js入口的文件夹如：package
 
-![image]([media/16839052485195/%E6%88%AA%E5%B1%8F2023-05-13%2000.38.34.png](https://github.com/hwq992689548/WeexDemo/blob/main/%E6%88%AA%E5%B1%8F2023-05-13%2000.51.29.png?raw=true))
+![image](https://github.com/hwq992689548/WeexDemo/blob/main/%E6%88%AA%E5%B1%8F2023-05-13%2000.51.29.png?raw=true)
 
 
 2、pages里面创建页面vue文件，package文件夹中，则创建好对应的js, copy entry.js中的内容，修改一下引入路径以及router.push即可，如：
