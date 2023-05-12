@@ -132,8 +132,7 @@ class WXNavigationDefaultImpl: NSObject, WXNavigationProtocol {
  
 ```
 创建完后，会要求选择是使用npm源还是yarn源，完成后直接npm start 或者yarn start 运行起来，可以看到如下，说明成功了，在目录下可以找到生成的dist文件夹：
-![image]([media/16839052485195/%E6%88%AA%E5%B1%8F2023-05-13%2000.06.31.png](https://github.com/hwq992689548/WeexDemo/blob/main/%E6%88%AA%E5%B1%8F2023-05-13%2000.06.31.png?raw=true
-))
+![image](https://github.com/hwq992689548/WeexDemo/blob/main/%E6%88%AA%E5%B1%8F2023-05-13%2000.06.31.png?raw=true)
 
 
 2、weex是单页面打包模式，如果需要进行多个页面一起打包，则需要对webpack.common.conf 文件进行修改配置（后面再说）
