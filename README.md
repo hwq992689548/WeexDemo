@@ -154,7 +154,7 @@ class WXNavigationDefaultImpl: NSObject, WXNavigationProtocol {
  注：1、127.0.0.1貌似没用起作用
     2、webpack.common.conf文件中，有提示
   
-   ![image](https://github.com/hwq992689548/WeexDemo/blob/main/%E6%88%AA%E5%B1%8F2023-05-13%2000.38.34.png?raw=true)
+  ![image](https://github.com/hwq992689548/WeexDemo/blob/main/%E6%88%AA%E5%B1%8F2023-05-13%2000.51.29.png?raw=true)
 
 还真信了邪，顺手就在vue页面中粘贴了：
 import weex from 'weex-vue-render';
@@ -164,9 +164,8 @@ import weex from 'weex-vue-render';
 三、weex多页面打包配置
 1、在src下创建pages文件夹以及装对应js入口的文件夹如：package
 
-![image](https://github.com/hwq992689548/WeexDemo/blob/main/%E6%88%AA%E5%B1%8F2023-05-13%2000.51.29.png?raw=true)
-
-
+ ![image](https://github.com/hwq992689548/WeexDemo/blob/main/%E6%88%AA%E5%B1%8F2023-05-13%2000.38.34.png?raw=true)
+ 
 2、pages里面创建页面vue文件，package文件夹中，则创建好对应的js, copy entry.js中的内容，修改一下引入路径以及router.push即可，如：
 
 ```
