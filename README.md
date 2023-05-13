@@ -245,7 +245,115 @@ const getEntryFile = () => {
 
  ```
  
+# 四、 weex与Native交互
  
+ 1、Native调用Weex
+
+swift中：
+
+直接调用：self.instance.fireGlobalEvent("方法名", param: [:])
+```
+
+ self.instance.fireGlobalEvent("callJS", params: ["id":"4333"])
+
+```
+
+weex中，监听方法：
+
+```
+created(){
+        var globalEvent = weex.requireModule('globalEvent');
+        globalEvent.addEventListener('callJS', (ret) => {
+            console.log(ret["id"])
+        })
+    },
+    
+```
+
+
+
+2、Weex调用Native
+
+（1）Weex中声名的wx_export_method是oc方法，所以要新建一个oc类WXEventModule.h与WXEventModule.m, 继承 WXModuleProtocol协议
+```
+WXEventModule.h 内容
+
+#import <Foundation/Foundation.h>
+#import <WeexSDK/WeexSDK.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface WXEventModule : NSObject<WXModuleProtocol>
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+```
+
+WXEventModule.m 文件：
+
+```
+#import "WXEventModule.h"
+@implementation WXEventModule
+@synthesize weexInstance;
+
+// 用 WX_EXPORT_METHOD 声名js调用Native的方法
+WX_EXPORT_METHOD(@selector(openURL: callback:))
+WX_EXPORT_METHOD(@selector(myPrint))
+
+
+- (void)openURL:(NSString *)url callback:(WXModuleCallback)callBack {
+//    NSLog(@"%@", url);
+}
+
+- (void)myPrint{
+//    NSLog(@"2344");
+}
+@end
+
+```
+
+因为是swift工程，在 xxxx-Bridging-Header.h中，引入oc类的方法
+#import "WXEventModule.h"
+
+（2）、再建立一个swift类，也可以同名：WXEventModule.swift，拓展WXEventModule中方法即可在swift中实现。
+
+```
+extension WXEventModule {
+    @objc func openURL(_ url: String, callback: @escaping WXModuleCallback) {
+         
+    }
+
+   @objc func myPrint(){
+        print("myPrint")
+    }
+}
+
+```
+
+
+（3）、在weex中，
+
+```
+
+click1(){
+    weex.requireModule("WXEventModule").myPrint()
+},
+
+click2(){
+    weex.requireModule("WXEventModule").openURL('https://www.baidu.com', (ret)=>{
+          console.log(ret["id"])
+    })
+}
+
+           
+           
+           
+
+```
+
+
  
 
 
